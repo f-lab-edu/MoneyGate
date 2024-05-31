@@ -15,7 +15,7 @@ export default function Footer() {
     queryKey: ["stream-hydrate-users"],
     queryFn: () => getUsers(),
   });
-  console.log(data);
+  // console.log(data);
   return (
     <footer className="bg-white rounded-lg m-4 dark:bg-gray-800 mt-auto">
       <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
