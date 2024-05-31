@@ -4,14 +4,15 @@ export type Data = {
 }
 
 export type Attr = {
-  timestamp: Date;
-  actualState: null;
-  actual: number;
-  actualFormatted: null;
-  forecast: number;
-  forecastFormatted: null;
-  revised: number;
-  revisedFormatted: null;
+  timestamp: string;
+  actualState: number | null;
+  actual: number | null;
+  actualFormatted: number | null;
+  forecast: number | null;
+  forecastFormatted: number | null;
+  revised: number | null;
+  revisedFormatted: number | null;
+  [key: string]: string | number | null;
 }
 
 export type Response = {

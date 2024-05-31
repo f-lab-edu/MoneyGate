@@ -11,6 +11,9 @@ export async function getData() {
     throw new Error("Network response was not ok");
   }
   const data: Response = await response.json();
-
-  return data;
+  const trimmedData = {
+    data: data.data.slice(-5).reverse(),
+    attr: data.attr.slice(-5).reverse()
+  }
+  return trimmedData;
 }

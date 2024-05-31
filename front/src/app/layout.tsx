@@ -22,8 +22,8 @@ export default function RootLayout({
       <body className={`${inter.className} flex flex-col relative`}>
         <Providers>
           <Header />
-          <main className="flex-grow mx-auto w-[1280px] p-6 lg:px-8">
-            {children}
+          <main className="flex-grow max-w-7xl mx-auto w-full p-6 lg:px-8">
+            <div className="w-full mx-auto">{children}</div>
           </main>
           <Footer />
         </Providers>
