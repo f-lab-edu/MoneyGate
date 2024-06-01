@@ -21,7 +21,7 @@ const TableHead = ({ data }: { data: Attr[] }) => {
         {keys.map((key, index) => {
           const label = columnHeaderMapping[key.toLowerCase()];
           return label ? (
-            <th key={index} scope="col" className="px-6 py-3 text-left">
+            <th key={index} scope="col" className="px-1 md:px-6 py-3 text-left">
               {label}
             </th>
           ) : null;
@@ -42,7 +42,7 @@ const TableBody = ({ data }: { data: Attr[] }) => {
           {Object.keys(item).map(
             (key, colIndex) =>
               item[key] !== null && (
-                <td key={colIndex} className="px-6 py-4">
+                <td key={colIndex} className="px-1 md:px-6 py-4">
                   {key === "timestamp" ? formatDate(item[key]) : item[key]}
                 </td>
               )

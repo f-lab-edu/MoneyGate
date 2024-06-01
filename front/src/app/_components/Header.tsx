@@ -10,13 +10,14 @@ export default function Header() {
         <div className="flex lg:flex-1">
           <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <Image
+            <span className="text-lg font-semibold leading-6 text-gray-900">MONEYGATE</span>
+            {/* <Image
               className="h-8 w-auto"
               width={20}
               height={20}
               src="https://images.unsplash.com/photo-1639603683079-7398c604497a?q=80&w=2667&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="logo"
-            />
+            /> */}
           </a>
         </div>
         <div className="flex lg:hidden">
