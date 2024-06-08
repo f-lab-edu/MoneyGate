@@ -10,8 +10,7 @@ export default function Tabs({ children }: { children: React.ReactNode[] }) {
   const handleTabClick = (tab: "LEADING" | "INFLATION") => {
     setActiveTab(tab);
   };
-  console.log(children);
-  console.log(activeTab);
+
   return (
     <div className="w-auto">
       <div className="relative right-0">

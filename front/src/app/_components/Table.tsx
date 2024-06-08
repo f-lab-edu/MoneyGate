@@ -1,5 +1,9 @@
+"use client";
+
 import { Attr } from "../_api/types/types";
 import { formatDate } from "../_util/util";
+import { useState } from "react";
+import Chart from "./Chart";
 
 const TableHead = ({ data }: { data: Attr[] }) => {
   const columnHeaderMapping: { [key: string]: string | null } = {
@@ -53,9 +57,58 @@ const TableBody = ({ data }: { data: Attr[] }) => {
   );
 };
 
-export default function Table({ title, attr }: { title: string; attr: Attr[] }) {
+export default function Table({
+  title,
+  attr,
+}: {
+  title: string;
+  attr: Attr[];
+}) {
+  const [showTable, setShowTable] = useState(true);
+
+  const chartData = {
+    labels: ["2024-01", "2024-02", "2024-03", "2024-04"],
+    datasets: [
+      {
+        label: "Dataset 1",
+        data: [5, 6, 7, 20],
+        borderColor: "red",
+        backgroundColor: "red",
+      },
+      {
+        label: "Dataset 2",
+        data: [3, 2, 1, 100],
+        borderColor: "blue",
+        backgroundColor: "blue",
+      },
+    ],
+  };
+
+    const onHandleSwitch = () => {
+      setShowTable((prev) => !prev);
+  };
+
+  if (!showTable) {
+    return (
+      <div className="relative overflow-x-auto w-full flex flex-col">
+        <button
+          className="w-32 bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-2 rounded mb-2"
+          onClick={onHandleSwitch}
+        > {showTable ? "차트 보기" : "테이블 보기"}
+        </button>
+        <Chart chartData={chartData} />
+    </div>
+    )
+  }
+
   return (
     <div className="relative overflow-x-auto w-full flex flex-col">
+      <button
+        className="w-32 bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-2 rounded mb-2"
+        onClick={onHandleSwitch}
+      >
+        {showTable ? "차트 보기" : "테이블 보기"}
+      </button>
       <p className="text-lg font-medium mb-2 text-center">{title}</p>
       <table>
         <TableHead data={attr} />

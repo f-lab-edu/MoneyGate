@@ -5,13 +5,13 @@ export type Data = {
 
 export type Attr = {
   timestamp: string;
-  actualState: number | null;
+  actualState: string | null;
   actual: number | null;
-  actualFormatted: number | null;
+  actualFormatted: string | null;
   forecast: number | null;
-  forecastFormatted: number | null;
+  forecastFormatted: string | null;
   revised: number | null;
-  revisedFormatted: number | null;
+  revisedFormatted: string | null;
   [key: string]: string | number | null;
 }
 
