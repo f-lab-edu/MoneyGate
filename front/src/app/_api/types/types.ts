@@ -15,7 +15,7 @@ export type Attr = {
   [key: string]: string | number | null;
 }
 
-export type Response = {
+export type IResponse = {
   data: Array<Data>
   attr: Array<Attr>
 }

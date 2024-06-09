@@ -4,6 +4,7 @@ import { Attr } from "../_api/types/types";
 import { formatDate } from "../_util/util";
 import { useState } from "react";
 import Chart from "./Chart";
+import { usePeriod } from "./PeriodContext";
 
 const TableHead = ({ data }: { data: Attr[] }) => {
   const columnHeaderMapping: { [key: string]: string | null } = {
@@ -66,6 +67,12 @@ export default function Table({
 }) {
   const [showTable, setShowTable] = useState(true);
 
+  const { period } = usePeriod();
+
+  const periodLength =
+    period === "6개월" ? 6 : period === "1년" ? 12 : period === "2년" ? 24 : 36;
+
+  // to do : chart data should be considered as well
   const chartData = {
     labels: ["2024-01", "2024-02", "2024-03", "2024-04"],
     datasets: [
@@ -84,8 +91,8 @@ export default function Table({
     ],
   };
 
-    const onHandleSwitch = () => {
-      setShowTable((prev) => !prev);
+  const onHandleSwitch = () => {
+    setShowTable((prev) => !prev);
   };
 
   if (!showTable) {
@@ -94,15 +101,16 @@ export default function Table({
         <button
           className="w-32 bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-2 rounded mb-2"
           onClick={onHandleSwitch}
-        > {showTable ? "차트 보기" : "테이블 보기"}
+        >
+          {showTable ? "차트 보기" : "테이블 보기"}
         </button>
         <Chart chartData={chartData} />
-    </div>
-    )
+      </div>
+    );
   }
 
   return (
-    <div className="relative overflow-x-auto w-full flex flex-col">
+    <div className="relative overflow-x-auto w-full flex flex-col max-h-[460px] overflow-y-scroll">
       <button
         className="w-32 bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-2 rounded mb-2"
         onClick={onHandleSwitch}
@@ -111,8 +119,8 @@ export default function Table({
       </button>
       <p className="text-lg font-medium mb-2 text-center">{title}</p>
       <table>
-        <TableHead data={attr} />
-        <TableBody data={attr} />
+        <TableHead data={attr.slice(-periodLength).reverse()} />
+        <TableBody data={attr.slice(-periodLength).reverse()} />
       </table>
     </div>
   );

@@ -15,7 +15,7 @@ export default function Tabs({ children }: { children: React.ReactNode[] }) {
     <div className="w-auto">
       <div className="relative right-0">
         <ul
-          className="relative flex flex-wrap p-1 list-none rounded-xl bg-blue-gray-50/60"
+          className="relative flex flex-wrap list-none rounded-xl bg-blue-gray-50/60"
           data-tabs="tabs"
           role="list"
         >
@@ -50,7 +50,7 @@ export default function Tabs({ children }: { children: React.ReactNode[] }) {
             </a>
           </li>
         </ul>
-        <div data-tab-content={activeTab} className="mt-5">
+        <div data-tab-content={activeTab} className="mt-4">
           {activeTab === "LEADING" && (
             <div className="block opacity-100" id="leading" role="tabpanel">
               {children[0]}

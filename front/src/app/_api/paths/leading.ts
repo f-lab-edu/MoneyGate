@@ -1,4 +1,4 @@
-import { Response } from "../types/types";
+import { IResponse } from "../types/types";
 
 const REQUEST_HOST = "http://foodiy.iptime.org:39908";
 
@@ -11,12 +11,9 @@ export async function getEmploymentCostIndex() {
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
-  const data: Response = await response.json();
-  const trimmedData = {
-    data: data.data.slice(-5).reverse(),
-    attr: data.attr.slice(-5).reverse()
-  }
-  return trimmedData;
+  const data: IResponse = await response.json();
+
+  return data;
 }
 
 // 소비자물가지수
@@ -28,12 +25,9 @@ export async function getCpi() {
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
-  const data: Response = await response.json();
-  const trimmedData = {
-    data: data.data.slice(-5).reverse(),
-    attr: data.attr.slice(-5).reverse()
-  }
-  return trimmedData;
+  const data: IResponse = await response.json();
+
+  return data;
 }
 
 // 핵심 소비자물가지수
@@ -45,12 +39,9 @@ export async function getCoreCpi() {
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
-  const data: Response = await response.json();
-  const trimmedData = {
-    data: data.data.slice(-5).reverse(),
-    attr: data.attr.slice(-5).reverse()
-  }
-  return trimmedData;
+  const data: IResponse = await response.json();
+
+  return data;
 }
 
 // 생산자물가지수
@@ -62,12 +53,9 @@ export async function getCorePpi() {
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
-  const data: Response = await response.json();
-  const trimmedData = {
-    data: data.data.slice(-5).reverse(),
-    attr: data.attr.slice(-5).reverse()
-  }
-  return trimmedData;
+  const data: IResponse = await response.json();
+
+  return data;
 }
 
 // 평균 시간당 수입
@@ -79,10 +67,7 @@ export async function getAverageHourlyEarning() {
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
-  const data: Response = await response.json();
-  const trimmedData = {
-    data: data.data.slice(-5).reverse(),
-    attr: data.attr.slice(-5).reverse()
-  }
-  return trimmedData;
+  const data: IResponse = await response.json();
+  
+  return data;
 }
