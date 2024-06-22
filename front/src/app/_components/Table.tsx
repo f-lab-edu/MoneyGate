@@ -116,9 +116,11 @@ export default function Table({
         >
           {showTable ? "차트 보기" : "테이블 보기"}
         </button>
-        {dataSet.length === 6 ? 
-          <BarChart chartData={chartData} title={title} /> : <LineChart chartData={chartData} title={title} />
-        }
+        {dataSet.length === 6 ? (
+          <BarChart chartData={chartData} title={title} />
+        ) : (
+          <LineChart chartData={chartData} title={title} />
+        )}
       </div>
     );
   }
