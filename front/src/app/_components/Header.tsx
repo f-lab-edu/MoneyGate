@@ -50,10 +50,7 @@ export default function Header() {
             Detail
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Marketplace
-          </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Company
+            People
           </a>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
