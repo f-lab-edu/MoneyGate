@@ -21,16 +21,7 @@ import dynamic from "next/dynamic";
 import Table from "./Table";
 import Tabs from "./Tabs";
 import Period from "./Period";
-import { PeriodProvider, usePeriod } from "./PeriodContext";
-
-const Chart = dynamic(() => import("./Chart/LineChart"), { ssr: false });
-
-const period = [
-  { label: "6개월" },
-  { label: "1년" },
-  { label: "2년" },
-  { label: "3년" },
-];
+import { PeriodProvider } from "./PeriodContext";
 
 export default async function Main() {
   // leading
