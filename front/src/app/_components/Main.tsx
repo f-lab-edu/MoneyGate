@@ -23,7 +23,7 @@ import Tabs from "./Tabs";
 import Period from "./Period";
 import { PeriodProvider, usePeriod } from "./PeriodContext";
 
-const Chart = dynamic(() => import("./Chart"), { ssr: false });
+const Chart = dynamic(() => import("./Chart/LineChart"), { ssr: false });
 
 const period = [
   { label: "6개월" },
@@ -57,10 +57,10 @@ export default async function Main() {
         <Period />
         <Tabs>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-20">
-            <Table title="고용 비용 지수" attr={employmentCostIndex.attr} />
-            <Table title="소비자 물가 지수" attr={cpi.attr} />
-            <Table title="핵심 소비자 물가 지수" attr={coreCpi.attr} />
-            <Table title="생산 물가 지수" attr={corePpi.attr} />
+            <Table title="고용비용지수" attr={employmentCostIndex.attr} />
+            <Table title="소비자물가지수" attr={cpi.attr} />
+            <Table title="핵심 소비자물가지수" attr={coreCpi.attr} />
+            <Table title="생산자물가지수" attr={corePpi.attr} />
             <Table
               title="미국 평균 시간당 수입"
               attr={averageHourEarning.attr}

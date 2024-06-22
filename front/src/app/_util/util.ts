@@ -29,12 +29,22 @@ export function format(
   return fnsFormat(date, format, defaultLocalOption(options));
 }
 
+export function formatDateWithMonth(dateString: string) {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const monthNames = ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"];
+  const monthName = monthNames[month - 1]; 
+  return `${year}년 ${month}월 ${day}일 (${monthName})`;
+}
+
 export function formatDate(dateString: string) {
   const date = new Date(dateString);
   const year = date.getFullYear();
-  const month = date.getMonth() + 1; // Months are zero-indexed, so add 1
+  const month = date.getMonth() + 1;
   const day = date.getDate();
   const monthNames = ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"];
-  const monthName = monthNames[month - 1]; // Subtract 1 to get the correct index
-  return `${year}년 ${month}월 ${day}일 (${monthName})`;
+  const monthName = monthNames[month - 1];
+  return `${year}/${month}/${day}`;
 }

@@ -1,9 +1,10 @@
 "use client";
 
-import { Attr } from "../_api/types/types";
-import { formatDate } from "../_util/util";
+import { Attr, Data } from "../_api/types/types";
+import { formatDateWithMonth, formatDate } from "../_util/util";
 import { useState } from "react";
-import Chart from "./Chart";
+import LineChart from "./Chart/LineChart";
+import BarChart from "./Chart/BarChart";
 import { usePeriod } from "./PeriodContext";
 
 const TableHead = ({ data }: { data: Attr[] }) => {
@@ -48,7 +49,9 @@ const TableBody = ({ data }: { data: Attr[] }) => {
             (key, colIndex) =>
               item[key] !== null && (
                 <td key={colIndex} className="px-1 md:px-6 py-4">
-                  {key === "timestamp" ? formatDate(item[key]) : item[key]}
+                  {key === "timestamp"
+                    ? formatDateWithMonth(item[key])
+                    : item[key]}
                 </td>
               )
           )}
@@ -60,9 +63,11 @@ const TableBody = ({ data }: { data: Attr[] }) => {
 
 export default function Table({
   title,
+  data,
   attr,
 }: {
   title: string;
+  data?: Data[];
   attr: Attr[];
 }) {
   const [showTable, setShowTable] = useState(true);
@@ -72,21 +77,28 @@ export default function Table({
   const periodLength =
     period === "6개월" ? 6 : period === "1년" ? 12 : period === "2년" ? 24 : 36;
 
-  // to do : chart data should be considered as well
+  const dataSet = attr.slice(-periodLength).reverse();
+
+  const date = attr
+    .slice(-periodLength)
+    .map((item) => formatDate(item.timestamp));
+  const actual = attr.slice(-periodLength).map((item) => item.actual);
+  const expected = attr.slice(-periodLength).map((item) => item.forecast);
+
   const chartData = {
-    labels: ["2024-01", "2024-02", "2024-03", "2024-04"],
+    labels: [...date],
     datasets: [
       {
-        label: "Dataset 1",
-        data: [5, 6, 7, 20],
-        borderColor: "red",
-        backgroundColor: "red",
+        label: "실제",
+        data: [...actual],
+        borderColor: "rgb(99 102 241)",
+        backgroundColor: "rgb(99 102 241)",
       },
       {
-        label: "Dataset 2",
-        data: [3, 2, 1, 100],
-        borderColor: "blue",
-        backgroundColor: "blue",
+        label: "예측",
+        data: [...expected],
+        borderColor: "red",
+        backgroundColor: "red",
       },
     ],
   };
@@ -104,7 +116,9 @@ export default function Table({
         >
           {showTable ? "차트 보기" : "테이블 보기"}
         </button>
-        <Chart chartData={chartData} />
+        {dataSet.length === 6 ? 
+          <BarChart chartData={chartData} title={title} /> : <LineChart chartData={chartData} title={title} />
+        }
       </div>
     );
   }
@@ -119,8 +133,8 @@ export default function Table({
       </button>
       <p className="text-lg font-medium mb-2 text-center">{title}</p>
       <table>
-        <TableHead data={attr.slice(-periodLength).reverse()} />
-        <TableBody data={attr.slice(-periodLength).reverse()} />
+        <TableHead data={dataSet} />
+        <TableBody data={dataSet} />
       </table>
     </div>
   );

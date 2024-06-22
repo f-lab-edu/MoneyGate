@@ -37,19 +37,19 @@ const options = {
       display: true,
     },
   },
-} as const;
+};
 
-
-export default function Chart({
+export default function LineChart({
   chartData,
+  title,
 }: {
   chartData: any;
+  title: string;
 }) {
   return (
-    <Line
-      datasetIdKey="id"
-      data={chartData}
-      options={options}
-    />
-  );
+    <div>
+      <p className="text-lg font-medium mb-2 text-center">{title}</p>
+      <Line datasetIdKey="id" data={chartData} options={options} />
+    </div>
+  )
 }
