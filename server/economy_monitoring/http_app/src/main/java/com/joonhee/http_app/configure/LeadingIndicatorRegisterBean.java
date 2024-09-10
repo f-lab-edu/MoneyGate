@@ -1,8 +1,8 @@
 package com.joonhee.http_app.configure;
 
-import com.joonhee.domain.us_economy.port.out.LeadingIndicatorInvestingComPort;
-import com.joonhee.domain.us_economy.service.LeadingIndicatorProcessor;
-import com.joonhee.domain.us_economy.usecase.LeadingIndicator;
+import com.joonhee.domain.chart.port.out.LeadingIndicatorInvestingComPort;
+import com.joonhee.domain.chart.service.LeadingIndicatorProcessor;
+import com.joonhee.domain.chart.usecase.LeadingIndicator;
 import com.joonhee.http_app.port.out.investingcom.leadingindicator.LeadingIndicatorFeignClient;
 import com.joonhee.http_app.port.out.investingcom.leadingindicator.LeadingIndicatorPortImpl;
 import org.springframework.context.annotation.Bean;

@@ -1,8 +1,8 @@
-package com.joonhee.domain.us_economy.service;
+package com.joonhee.domain.chart.service.legacy;
 
-import com.joonhee.domain.us_economy.contract.ChartData;
-import com.joonhee.domain.us_economy.port.out.LeadingIndicatorInvestingComPort;
-import com.joonhee.domain.us_economy.usecase.LeadingIndicator;
+import com.joonhee.domain.chart.contract.ChartData;
+import com.joonhee.domain.chart.port.out.LeadingIndicatorInvestingComPort;
+import com.joonhee.domain.chart.usecase.legacy.LeadingIndicator;
 
 public class LeadingIndicatorProcessor implements LeadingIndicator {
     private final LeadingIndicatorInvestingComPort leadingIndicatorInvestingComPort;
