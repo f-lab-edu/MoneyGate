@@ -1,7 +1,7 @@
 package com.joonhee.http_app.port.out.investingcom.leadingindicator;
 
-import com.joonhee.domain.us_economy.contract.ChartResponse;
-import com.joonhee.domain.us_economy.port.out.LeadingIndicatorInvestingComPort;
+import com.joonhee.domain.chart.contract.ChartResponse;
+import com.joonhee.domain.chart.port.out.LeadingIndicatorInvestingComPort;
 
 public class LeadingIndicatorPortImpl implements LeadingIndicatorInvestingComPort {
     private final LeadingIndicatorFeignClient leadingIndicatorFeignClient;

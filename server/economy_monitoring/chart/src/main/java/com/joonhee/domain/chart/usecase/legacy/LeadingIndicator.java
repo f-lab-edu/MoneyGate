@@ -1,6 +1,6 @@
-package com.joonhee.domain.us_economy.usecase;
+package com.joonhee.domain.chart.usecase.legacy;
 
-import com.joonhee.domain.us_economy.contract.ChartData;
+import com.joonhee.domain.chart.contract.ChartData;
 
 public interface LeadingIndicator {
     ChartData getCbConsumer();

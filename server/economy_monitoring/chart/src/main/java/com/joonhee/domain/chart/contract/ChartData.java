@@ -1,4 +1,4 @@
-package com.joonhee.domain.us_economy.contract;
+package com.joonhee.domain.chart.contract;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,41 +17,31 @@ public class ChartData {
         this.attr = attr;
     }
 
-    static public class Data {
-        Long value;
-        Double percent;
+    public static class Data {
+        public Long value;
+        public Double percent;
 
         public Data(Long value, Double percent) {
             this.value = value;
             this.percent = percent;
         }
-
-        public Long getValue() {
-            return value;
-        }
-
-        public Double getPercent() {
-            return percent;
-        }
     }
 
     public static ChartData from(ChartResponse chartResponse) {
-        try{
-
+        try {
             return new ChartData(
                     chartResponse.data.stream()
                             .map(data ->
                                     new Data(
-                                            Optional.ofNullable(data.get(0)).map(o -> (Long) o).orElseThrow(null),
+                                            Optional.ofNullable(data.get(0)).map(o -> (Long) o).orElseThrow(),
                                             Optional.ofNullable(data.get(1)).map(o -> Double.valueOf(o.toString())).orElseThrow()
                                     ))
                             .collect(Collectors.toList()
                             ),
                     chartResponse.attr
             );
-        }catch (Exception e){
+        } catch (Exception e) {
             return null;
         }
-
     }
 }

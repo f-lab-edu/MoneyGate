@@ -77,7 +77,6 @@ dump.rdb
 interpolated*.xml
 lib/
 manifest.yml
-out
 overridedb.*
 target
 .flattened-pom.xml

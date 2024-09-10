@@ -5,3 +5,9 @@ investing:
 springdoc:
   swagger-ui:
     path: "/swagger"
+
+logging:
+  level:
+    org:
+      springframework:
+        DEBUG
