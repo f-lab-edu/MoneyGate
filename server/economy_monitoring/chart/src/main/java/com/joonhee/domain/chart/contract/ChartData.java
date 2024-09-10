@@ -17,9 +17,9 @@ public class ChartData {
         this.attr = attr;
     }
 
-    static public class Data {
-        Long value;
-        Double percent;
+    public static class Data {
+        public Long value;
+        public Double percent;
 
         public Data(Long value, Double percent) {
             this.value = value;
