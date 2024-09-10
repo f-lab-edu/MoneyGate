@@ -19,7 +19,7 @@ public class ChartViewResponse {
         List<AnnouncedData> content = chartResponse.attr.stream().map(attr -> new AnnouncedData(
                 attr.actual,
                 attr.forecast,
-                -1f,
+                -1f,    // TODO: 지난 데이터 처리는 다음 스프린트에서
                 attr.getAnnouncedAt()
         )).collect(Collectors.toList());
         return new ChartViewResponse(content, type);
