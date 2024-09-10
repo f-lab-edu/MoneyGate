@@ -1,6 +1,6 @@
 package com.joonhee.http_app.port.out.investingcom.leadingindicator;
 
-import com.joonhee.domain.us_economy.contract.ChartResponse;
+import com.joonhee.domain.chart.contract.ChartResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 

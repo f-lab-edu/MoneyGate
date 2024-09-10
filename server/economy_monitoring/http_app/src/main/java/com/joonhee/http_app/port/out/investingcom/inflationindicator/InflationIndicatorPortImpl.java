@@ -1,7 +1,7 @@
 package com.joonhee.http_app.port.out.investingcom.inflationindicator;
 
-import com.joonhee.domain.us_economy.contract.ChartResponse;
-import com.joonhee.domain.us_economy.port.out.InflationIndicatorInvestingComPort;
+import com.joonhee.domain.chart.contract.ChartResponse;
+import com.joonhee.domain.chart.port.out.InflationIndicatorInvestingComPort;
 
 public class InflationIndicatorPortImpl implements InflationIndicatorInvestingComPort {
     private final InflationIndicatorFeignClient inflationIndicatorFeignClient;

@@ -1,14 +1,14 @@
 package com.joonhee.http_app.controller.chart;
 
-import com.joonhee.domain.us_economy.contract.ChartData;
-import com.joonhee.domain.us_economy.usecase.InflationIndicator;
+import com.joonhee.domain.chart.dto.ChartViewResponse;
+import com.joonhee.domain.chart.usecase.InflationIndicator;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/chart")
+@RequestMapping("/v1/chart")
 public class LeadingIndicatorChartQueryController {
     private final InflationIndicator inflationIndicator;
 
@@ -18,31 +18,31 @@ public class LeadingIndicatorChartQueryController {
 
     @Operation(tags = "LeadingIndicator")
     @GetMapping("/core-cpi")
-    ChartData getCoreCpi() {
+    ChartViewResponse getCoreCpi() {
         return inflationIndicator.getCoreCpi();
     }
 
     @Operation(tags = "LeadingIndicator")
     @GetMapping("/cpi")
-    ChartData getCpi() {
+    ChartViewResponse getCpi() {
         return inflationIndicator.getCpi();
     }
 
     @Operation(tags = "LeadingIndicator")
     @GetMapping("/core-ppi")
-    ChartData getCorePpi() {
+    ChartViewResponse getCorePpi() {
         return inflationIndicator.getCorePpi();
     }
 
     @Operation(tags = "LeadingIndicator")
     @GetMapping("/employment-cost-index")
-    ChartData getEmploymentCostIndex() {
+    ChartViewResponse getEmploymentCostIndex() {
         return inflationIndicator.getEmploymentCostIndex();
     }
 
     @Operation(tags = "LeadingIndicator")
     @GetMapping("/average-hourly-earnings")
-    ChartData getAverageHourlyEarnings() {
+    ChartViewResponse getAverageHourlyEarnings() {
         return inflationIndicator.getAverageHourlyEarnings();
     }
 }
